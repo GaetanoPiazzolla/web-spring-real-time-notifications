@@ -1,0 +1,24 @@
+
+https://www.toptal.com/java/stomp-spring-boot-websocket
+
+Building the WebSocket Client
+Implementing a client is an even simpler task.
+
+Step 1. Autowire Spring STOMP client.
+
+@Autowired
+private WebSocketStompClient stompClient;
+
+Step 2. Open a connection.
+
+StompSessionHandler sessionHandler = new CustmStompSessionHandler();
+
+StompSession stompSession = stompClient.connect(loggerServerQueueUrl, 
+sessionHandler).get();
+
+Once this is done, it is possible to send a message to a destination. The message will be sent to all users subscribed to a topic.
+
+stompSession.send("topic/greetings", "Hello new user");
+It is also possible to subscribe for messages.
+
+session.subscribe("topic/greetings", this);

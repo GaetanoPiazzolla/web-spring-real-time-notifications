@@ -1,0 +1,67 @@
+
+
+plugins {
+	id 'org.springframework.boot' version '2.1.11.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+	id 'io.freefair.lombok' version "4.1.6" // auto generates code
+	id 'eclipse'
+	id 'java'
+	id 'org.sonarqube' version '2.7' // code analysis
+}
+
+repositories {
+	mavenCentral()
+}
+
+group = 'com.gpiazzolla'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = JavaVersion.VERSION_11
+
+ext {
+	springBootVersion = '2.1.10.RELEASE'
+	springCloudVersion = 'Greenwich.RELEASE'
+	springVersion = '5.1.11.RELEASE'
+	logbackVersion = '1.2.3'
+	aspectjVersion = '1.8.13'
+	servletApiVersion = '3.1.0'
+	jacksonVersion = '2.9.5'
+	cxfVersion = '3.2.4'
+	noNilsWsdl2javaVersion = '0.10'
+	
+}
+
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.springframework.boot:spring-boot-starter-reactor-netty'
+    
+	implementation 'io.springfox:springfox-swagger2:2.9.2'
+	implementation 'io.springfox:springfox-swagger-ui:2.9.2'
+	
+    implementation 'org.mapstruct:mapstruct:1.3.1.Final'
+    implementation 'com.h2database:h2:1.4.194'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator:2.1.10.RELEASE'
+    
+    runtimeOnly 'org.postgresql:postgresql'
+    
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+    
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.3.1.Final"
+   
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.1.12.RELEASE'
+    
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-mail'	
+    
+}
+
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+	}
+}

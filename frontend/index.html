@@ -1,0 +1,32 @@
+<html>
+
+
+<head>
+    <title>Spring WebSocket Messaging</title>
+
+    <script src="sockjs.min.js"></script>
+    <script src="stomp.min.js"></script>
+
+    <script src="WebSocketController.js"></script>
+</head>
+
+
+<body onload="wsController.disconnect();">
+<div>
+    <div>
+        <button id="connect" onclick="wsController.connect();">Connect</button>
+        <button id="disconnect" disabled="disabled" onclick="wsController.disconnect();">
+            Disconnect
+        </button>
+    </div>
+    <br/>
+    <div id="mural">
+        <input type="text" id="text" placeholder="Write a message..."/>
+        <button id="sendMessage" onclick="wsController.sendMessage();">Send</button>
+        <p id="response"></p>
+    </div>
+</div>
+</body>
+
+
+</html>

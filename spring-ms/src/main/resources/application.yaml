@@ -1,0 +1,6 @@
+spring:
+  rabbitmq:
+    host: rabbitmq 
+
+endpoint: ws-socket-alert
+  
